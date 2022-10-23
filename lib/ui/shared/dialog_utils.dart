@@ -4,11 +4,11 @@ Future<bool?> showConfirmDialog(BuildContext context, String message) {
   return showDialog(
     context: context,
     builder: (ctx) => AlertDialog(
-      title: const Text('Are you sure?'),
+      title: const Text('An Error Occurred!'),
       content: Text(message),
       actions: <Widget>[
         TextButton(
-          child: const Text('No'),
+          child: const Text('OK'),
           onPressed: () {
             Navigator.of(ctx).pop(false);
           },

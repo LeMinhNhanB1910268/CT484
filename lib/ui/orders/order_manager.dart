@@ -7,7 +7,7 @@ import 'package:flutter/foundation.dart';
 class OrdersManager with ChangeNotifier {
   final List<OrderItem> _orders = [
     OrderItem(
-      Id: 'o1',
+      id: 'o1',
       amount: 59.98,
       products: [
         CartItem(
@@ -33,7 +33,7 @@ class OrdersManager with ChangeNotifier {
     _orders.insert(
       0,
       OrderItem(
-        Id: 'o${DateTime.now().toIso8601String()}',
+        id: 'o${DateTime.now().toIso8601String()}',
         amount: total,
         products: cartProducts,
         dateTime: DateTime.now(),

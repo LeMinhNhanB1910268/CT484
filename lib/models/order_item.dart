@@ -1,7 +1,7 @@
 import 'cart_item.dart';
 
 class OrderItem {
-  final String? Id;
+  final String? id;
   final double amount;
   final List<CartItem> products;
   final DateTime dateTime;
@@ -11,20 +11,20 @@ class OrderItem {
   }
 
   OrderItem({
-    this.Id,
+    this.id,
     required this.amount,
     required this.products,
     DateTime? dateTime,
   }) : dateTime = dateTime ?? DateTime.now();
 
   OrderItem copyWith({
-    String? Id,
+    String? id,
     double? amount,
     List<CartItem>? products,
     DateTime? dateTime,
   }) {
     return OrderItem(
-      Id: Id ?? this.Id,
+      id: id ?? this.id,
       amount: amount ?? this.amount,
       products: products ?? this.products,
       dateTime: dateTime ?? this.dateTime,
