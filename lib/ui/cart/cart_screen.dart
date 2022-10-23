@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myshop/ui/orders/order_manager.dart';
 import 'package:provider/provider.dart';
 
 import 'cart_item_cart.dart';
@@ -43,36 +44,43 @@ class CartScreen extends StatelessWidget {
 
   Widget buildCartSummary(CartManager cart, BuildContext context) {
     return Card(
-        margin: const EdgeInsets.all(15),
-        child: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              const Text(
-                'Total',
-                style: TextStyle(fontSize: 20),
-              ),
-              const Spacer(),
-              Chip(
-                label: Text(
-                  '\$${cart.totalAmount.toStringAsFixed(2)}',
-                  style: TextStyle(
-                    color: Theme.of(context).primaryTextTheme.headline6?.color,
-                  ),
+      margin: const EdgeInsets.all(15),
+      child: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            const Text(
+              'Total',
+              style: TextStyle(fontSize: 20),
+            ),
+            const Spacer(),
+            Chip(
+              label: Text(
+                '\$${cart.totalAmount.toStringAsFixed(2)}',
+                style: TextStyle(
+                  color: Theme.of(context).primaryTextTheme.headline6?.color,
                 ),
-                backgroundColor: Theme.of(context).primaryColor,
               ),
-              TextButton(onPressed: () {
-                print('An order has been added');
+              backgroundColor: Theme.of(context).primaryColor,
+            ),
+            TextButton(
+              onPressed: cart.totalAmount <= 0
+              ? null
+              : () {
+                  context.read<OrdersManager>().addOrder(
+                        cart.products,
+                        cart.totalAmount,
+                      );
+                  cart.clear();
               },
               style: TextButton.styleFrom(
                 textStyle: TextStyle(color: Theme.of(context).primaryColor),
               ),
               child: const Text('ORDER NOW'),
-              )
-            ],
-          ),
+            ),
+          ],
+        ),
       ),
     );
   }
