@@ -19,6 +19,7 @@ Product({
   set isFavorite(bool newValue){
     _isFavorite.value = newValue;
   }
+  
   bool get isFavorite {
     return _isFavorite.value;
   }
@@ -26,6 +27,7 @@ Product({
   ValueNotifier<bool> get isFavoriteListenable {
     return _isFavorite;
   }
+
   Product copyWith({
     String? id,
     String? title,
@@ -43,6 +45,7 @@ Product({
       isFavorite: isFavorite ?? this.isFavorite,
     );
   }
+
   Map<String, dynamic> toJson(){
     return {
       'title': title,
@@ -51,6 +54,7 @@ Product({
       'imageUrl': imageUrl,
     };
   }
+  
   static Product fromJson(Map<String, dynamic> json){
     return Product(
       id: json['id'],

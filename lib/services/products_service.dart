@@ -18,7 +18,7 @@ class ProductsService extends FirebaseService {
           filterByUser ? 'orderBy="creatorId"&equalTo="$userId"' : '';
       final productsUrl =
           Uri.parse('$databaseUrl/products.json?auth=$token&$filters');
-      final response = await http.get(productsUrl);
+      final response = await http.get(products);
       final productsMap = json.decode(response.body) as Map<String, dynamic>;
 
       if (response.statusCode != 200) {

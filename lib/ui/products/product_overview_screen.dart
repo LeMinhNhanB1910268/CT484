@@ -60,7 +60,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
           }
         });
       },
-      icon: const Icon(
+      icon: const Icon (
         Icons.more_vert,
       ),
       itemBuilder: (ctx) => [
