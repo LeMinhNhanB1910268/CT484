@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:http/http.dart';
-// import 'package:provider/provider.dart';
 import '../models/product.dart';
 import '../models/auth.token.dart';
 
@@ -25,6 +24,7 @@ class ProductsService extends FirebaseService {
         print(productsMap['error']);
         return products;
       }
+
       final userFavoriteUrl =
           Uri.parse('$databaseUrl/userFavorites/$userId.json?auth=$token');
       final userFavoritesResponse = await http.get(userFavoriteUrl);

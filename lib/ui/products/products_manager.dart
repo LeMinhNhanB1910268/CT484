@@ -66,6 +66,7 @@ class ProductsManager with ChangeNotifier {
     );
     notifyListeners();
   }
+
   void updateProduct(Product product) {
     final index = _items.indexWhere((item) => item.id == product.id);
     if (index >= 0) {
@@ -73,6 +74,7 @@ class ProductsManager with ChangeNotifier {
       notifyListeners();
     }
   }
+
   void toggleFavoriteStatus(Product product) {
     final saveStatus = product.isFavorite;
     product.isFavorite = !saveStatus;
@@ -83,4 +85,5 @@ class ProductsManager with ChangeNotifier {
     _items.removeAt(index);
     notifyListeners();
   }
+  
 }
