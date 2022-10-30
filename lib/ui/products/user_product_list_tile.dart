@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myshop/ui/products/products_manager.dart';
-import 'package:myshop/ui/screens.dart';
+import '../products/products_manager.dart';
+import '../screens.dart';
 import 'package:provider/provider.dart';
 import '../../models/product.dart';
 
